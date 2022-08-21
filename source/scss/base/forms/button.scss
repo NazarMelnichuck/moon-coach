@@ -1,0 +1,74 @@
+.button {
+   background-color: #333333;
+   font-family: $fontFamily;
+   font-weight: 400;
+   font-size: 18px;
+   @include line-height(20, 18);
+   text-align: center;
+   color: #EFEEE8;
+   padding: 22px 24px;
+   cursor: pointer;
+   transition: 0.2s;
+
+   &_img {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+   }
+
+
+   @media (max-width: $tab4) {
+      padding: 20px 22px;
+      font-size: 14px;
+   }
+
+   @media (max-width: $ml) {
+      padding: 16px 18px;
+   }
+
+   span {
+      margin-right: 50px;
+
+      @media (max-width: $ml) {
+         margin-right: 30px;
+      }
+   }
+
+   img {
+      @media (max-width: $tab4) {
+         width: 16%;
+      }
+   }
+
+
+   @media (min-width: $tab1) {
+      &:hover {
+         background-color: #303030;
+         transition: 0.2s;
+
+         img {
+            animation-name: hoverButton;
+            animation-duration: 1s;
+            animation-timing-function: ease-in-out;
+         }
+      }
+   }
+}
+
+@keyframes hoverButton {
+   25% {
+      transform: translateX(-10px);
+   }
+
+   50% {
+      transform: translateX(0px);
+   }
+
+   75% {
+      transform: translateX(-5px);
+   }
+
+   100% {
+      transform: translateX(0px);
+   }
+}

@@ -1,0 +1,82 @@
+// * =========== Змінні ===========
+
+// Width conteiner
+$conteiner: 1220px;
+$conteinerPadding: 10px;
+
+// Standart font family
+$fontFamily: "Oxygen";
+
+// Colors
+$mainColor: #F5F5F5;
+
+// breakpoints
+$comp1: 1440px;
+$comp2: 1024px;
+$tab1: 972px;
+$tab2: 800px;
+$tab3: 768px;
+$tab4: 600px;
+$tab5: 479px;
+$ml: 425px;
+$mm: 375px;
+$ms: 320px;
+
+// * =========== Classes ===========
+
+body {
+    height: 100%;
+    background-color: $mainColor;
+    font-family: $fontFamily;
+
+    @media (max-width: $ml) {
+        &.lock {
+            overflow: hidden;
+        }
+    }
+
+    &.hide {
+        overflow: visible;
+    }
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+    overflow: hidden;
+}
+
+.conteiner {
+    max-width: $conteiner + $conteinerPadding * 2;
+    padding: 0 $conteinerPadding 0 $conteinerPadding;
+    margin: 0 auto;
+}
+
+.ibg {
+    position: relative;
+}
+
+.ibg img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+    object-position: right;
+}
+
+img {
+    display: block;
+}
+
+a {
+    text-decoration: none;
+}
+
+@import "settings/mixin";
+@import "base/base";
+@import "_header";
+@import "_page";
+@import "footer";

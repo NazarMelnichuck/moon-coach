@@ -1,0 +1,50 @@
+//<form>
+
+.form {
+
+   // .form__input
+   &__input {
+      background-color: transparent;
+      border-top: 0;
+      border-left: 0;
+      border-right: 0;
+      border-bottom: 1px solid rgba(51, 51, 51, 0.8);
+      padding: 0 35px 15px 35px;
+      margin-bottom: 32px;
+
+      font-family: 'Libre Baskerville';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 18px;
+      @include line-height (21px, 16px);
+      color: black;
+
+      &::placeholder {
+         font-family: 'Libre Baskerville';
+         font-style: normal;
+         font-weight: 400;
+         font-size: 16px;
+         @include line-height (21px, 16px);
+         color: #333333;
+      }
+
+      &:focus {
+         border-bottom: 1px solid black;
+         transition: 0s;
+      }
+
+      @media (max-width: $ml) {
+         width: 100%;
+      }
+   }
+
+   // .form__button
+   &__button {
+      padding: 15px 30px;
+   }
+}
+
+//</form>
+
+// * ==== Кнопка
+@import "button.scss";

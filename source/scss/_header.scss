@@ -1,0 +1,392 @@
+//! =========== Header ===========
+
+.header {
+   position: absolute;
+   width: 100%;
+   background-color: $mainColor;
+   padding: 25px 0;
+   border-bottom: 1px solid #333333;
+   transition: 0.2s;
+
+   &.fixed {
+      position: fixed;
+      z-index: 10;
+      width: 100%;
+      background-color: rgb(228 226 211 / 98%);
+      border: 0;
+      transition: 0.2s;
+   }
+
+   // .header__conteiner
+   &__conteiner {
+      display: flex;
+      flex-direction: row;
+      position: relative;
+
+      @media (max-width: $tab1) {
+         justify-content: space-between;
+         align-items: center;
+      }
+
+      @media (max-width: 250px) {
+         justify-content: flex-end;
+      }
+   }
+
+   // .header__wrapper
+   &__wrapper {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      overflow: hidden;
+
+      @media (max-width: $tab1) {
+         position: fixed;
+         top: 0;
+         right: -100%;
+         width: 300px;
+         height: 100%;
+         z-index: 120;
+         flex-direction: column;
+         justify-content: flex-start;
+         padding-top: 90px;
+         background-color: #c3c3c3;
+         overflow-y: auto;
+         transition: 0.2s;
+
+         &.active {
+            right: 0;
+            transition: 0.2s;
+         }
+      }
+
+      @media (max-width: $ml) {
+         width: 100%;
+      }
+   }
+
+   // .header__logo
+   &__logo {
+      margin-right: 20px;
+
+      // .header__logo_mobile
+      &_mobile {
+         display: none;
+
+         @media (max-width: $tab1) {
+            display: block;
+         }
+
+         @media (max-width: 250px) {
+            display: none;
+         }
+      }
+
+      @media (max-width: $tab1) {
+         margin-right: 0;
+         margin-bottom: 40px;
+      }
+
+      &_img {
+         max-width: 100%;
+      }
+   }
+
+   // .header__menu
+   &__menu {
+      display: flex;
+      flex-direction: row;
+
+      @media (max-width: $tab1) {
+         margin-bottom: auto;
+      }
+   }
+
+   // .header__button
+   &__button {
+      @media (max-width: $tab1) {
+         margin-bottom: 20px;
+      }
+
+      a {
+         font-family: $fontFamily;
+         font-style: normal;
+         font-weight: 400;
+         font-size: 16px;
+         @include line-height(20, 16);
+         color: #222222;
+
+         @media (min-width: $tab1) {
+            &:hover {
+               font-weight: bold;
+            }
+         }
+
+         @media (max-width: $tab1) {
+            margin-right: 0;
+         }
+      }
+   }
+
+   // .header__burger
+   &__burger {
+      display: none;
+
+      @media (max-width: $tab1) {
+         display: block;
+      }
+   }
+}
+
+.menu {
+
+   // .menu__list
+   &__list {
+      display: flex;
+      flex-direction: row;
+
+      @media (max-width: $tab1) {
+         flex-direction: column;
+         margin-right: 0;
+      }
+   }
+
+   // .menu__item
+   &__item {
+      display: inline-block;
+      cursor: pointer;
+
+      &:not(:last-child) {
+         margin-right: 15px;
+      }
+
+      @media (min-width: $tab1) {
+         &:hover .menu__dropdown {
+            display: block;
+         }
+      }
+
+      @media (max-width: $tab1) {
+         margin-right: 0;
+
+         &:not(:last-child) {
+            margin-right: 0;
+            margin-bottom: 10px;
+         }
+      }
+   }
+
+   // .menu__link
+   &__link {
+      font-family: $fontFamily;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 16px;
+      @include line-height(20, 16);
+      color: #222222;
+
+      &_dropdown {
+         border: none;
+         background: inherit;
+         position: relative;
+         padding-right: 22px;
+
+         &:after,
+         &:before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 7px;
+            border: 1px solid black;
+            transition: 0.2s;
+         }
+
+         &:before {
+            right: 0;
+            transform: rotate(-45deg);
+         }
+
+         &:after {
+            right: 6px;
+            transform: rotate(45deg);
+         }
+
+         @media (min-width: $tab1) {
+            &:hover {
+               &:after {
+                  transform: rotate(-45deg);
+                  transition: 0.2s;
+               }
+
+               &:before {
+                  transform: rotate(45deg);
+                  transition: 0.2s;
+               }
+            }
+         }
+
+         @media (max-width: $tab1) {
+            &._active {
+               &:after {
+                  transform: rotate(-45deg);
+                  transition: 0.2s;
+               }
+
+               &:before {
+                  transform: rotate(45deg);
+                  transition: 0.2s;
+               }
+            }
+         }
+      }
+
+      @media (min-width: $tab1) {
+         &:hover {
+            font-weight: bold;
+         }
+      }
+
+      &:last-child {
+         margin-right: 0;
+      }
+
+      @media (max-width: $tab1) {
+         font-size: 22px;
+         margin-right: 0;
+      }
+   }
+
+   // .menu__dropdown
+   &__dropdown {
+      min-width: 110px;
+      background-color: white;
+      position: absolute;
+      z-index: 10;
+
+      @media (min-width: $tab1) {
+         display: none;
+      }
+
+      @media (max-width: $tab1) {
+         position: static;
+         background-color: inherit;
+      }
+   }
+}
+
+.dropdown {
+
+   // .dropdown__item
+   &__item {
+      padding: 5px 0 5px 0;
+      border-bottom: 1px solid #33333321;
+
+      &:last-child {
+         padding-bottom: 5px;
+         border: none;
+      }
+
+      &:hover {
+         background-color: #dbdbdb;
+      }
+   }
+
+   // .dropdown__link
+   &__link {
+      padding: 0 10px;
+      font-family: $fontFamily;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 140%;
+      color: #222222;
+
+      @media (max-width: $tab1) {
+         font-size: 22px;
+      }
+   }
+}
+
+//! ==============================
+//! =========== Burger ===========
+//! ==============================
+
+@media (max-width: 972px) {
+
+   .header-burger {
+      display: block;
+      position: relative;
+      width: 30px;
+      height: 20px;
+      z-index: 120;
+   }
+
+   .header-burger span {
+      position: absolute;
+      background-color: #000;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      top: 9px;
+      z-index: 999;
+      transition: all 0.3s ease 0s;
+   }
+
+   .header-burger:before,
+   .header-burger:after {
+      content: "";
+      background-color: #000;
+      position: absolute;
+      width: 100%;
+      height: 3px;
+      left: 0;
+      transition: all 0.3s ease 0s;
+   }
+
+   .header-burger:before {
+      top: 0;
+      z-index: 3;
+   }
+
+   .header-burger:after {
+      bottom: 0;
+      z-index: 120;
+   }
+
+   //* =========== animation burger ===========
+
+   .header-burger.active:before {
+      background-color: white;
+      transform: rotate(44deg);
+      top: 9px;
+   }
+
+   .header-burger.active span {
+      background-color: white;
+      transform: scale(0);
+   }
+
+   .header-burger.active:after {
+      background-color: white;
+      transform: rotate(-44deg);
+      bottom: 9px;
+   }
+
+   //* =========== hide ===========
+
+   .header-burger.hide:before {
+      transform: rotate(0deg);
+      top: 0px;
+   }
+
+   .header-burger.hide span {
+      transform: scale(1);
+   }
+
+   .header-burger.hide:after {
+      transform: rotate(0deg);
+      bottom: 0px;
+   }
+}

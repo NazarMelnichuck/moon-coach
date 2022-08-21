@@ -1,0 +1,81 @@
+.intro-anim {
+   transform: translate(0, 10px);
+   opacity: 0;
+   transition: 0.8s;
+
+   &.anim-active {
+      transform: translate(0, 0px);
+      opacity: 1;
+      transition: 0.8s;
+   }
+}
+
+.section-header-anim {
+   &.section-header__title {
+      transform: translate(0, 10px);
+      opacity: 0;
+      transition: 0.8s;
+
+      &.anim-active {
+         transform: translate(0, 0px);
+         opacity: 1;
+         transition: 0.8s;
+      }
+   }
+
+   &.section-header__suptitle {
+      transform: translate(0, 10px);
+      opacity: 0;
+      transition: 0.8s;
+
+      &.anim-active {
+         transform: translate(0, 0px);
+         opacity: 1;
+         transition: 0.8s 0.1s;
+      }
+   }
+}
+
+.list-anim {
+   transform: translate(-30px, 0);
+   opacity: 0;
+   transition: 0.8s;
+
+   &.anim-active {
+      transform: translate(0, 0);
+      opacity: 1;
+      transition: 0.8s 0.1s;
+   }
+
+   @media (max-width: 900px) {
+      transform: translate(0, 30px);
+   }
+}
+
+.page-content-anim {
+   transform: translate(0, 30px);
+   opacity: 0;
+   transition: 0.8s;
+
+   &.anim-active {
+      transform: translate(0, 0);
+      opacity: 1;
+      transition: 0.8s;
+   }
+}
+
+.form-anim {
+   transform: translate(-30px, 0);
+   opacity: 0;
+   transition: 0.8s;
+
+   &.anim-active {
+      transform: translate(0, 0);
+      opacity: 1;
+      transition: 0.8s 0.2s;
+   }
+
+   @media (max-width: $tab3) {
+      transform: translate(0, 30px);
+   }
+}
